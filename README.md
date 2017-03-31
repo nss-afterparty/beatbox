@@ -1,5 +1,5 @@
-#Beatbox game - Voice recognition
+# Beatbox game - Voice recognition
 
-##Credits
+## Credits
 * Joey Kirby
 * Nick Chemsak
