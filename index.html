@@ -31,6 +31,8 @@
   var player;
   var platforms;
   var cursors;
+  var upKey;
+
 
   function create() {
 
@@ -79,8 +81,24 @@
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
+    cursors.up.onDown.add(isUp);
+    cursors.right.onDown.add(isRight);
+
+    var upKey = game.input.keyboard.addKey(Phaser.Keyboard.ONE);
+    // upKey.onDown.add(downDown);
 
   }
+
+  function isUp() {
+    console.log("JUMP!!");
+  }
+
+  function isRight() {
+    player.body.velocity.x = 2000;
+    // player.body.x += 30;
+    console.log("hiHat")
+  }
+
 
   function update() {
 
@@ -92,12 +110,13 @@
 
     if (cursors.left.isDown) {
       //  Move to the left
-      player.body.velocity.x = -150;
+      player.body.velocity.x = 0;
 
-      player.animations.play('left');
     } else if (cursors.right.isDown) {
       //  Move to the right
-      player.body.velocity.x = 150;
+      // player.body.velocity.x = 150;
+      // player.body.x += 30;
+
 
       player.animations.play('right');
     } else {
@@ -109,7 +128,8 @@
 
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown && player.body.touching.down) {
-      player.body.velocity.y = -350;
+      // player.body.velocity.y = -50;
+      player.body.y -= 100;
     }
 
   }
