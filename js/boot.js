@@ -1,15 +1,15 @@
-class Boot extends Phaser.State {
-  create() {
+let Boot = {
+  create: function () {
 
     // Scale to show the full screen
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    this.scale.pageAlignHorizontally = true;
-    this.scale.pageAlignVertically = true;
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
 
     // Start physics
-    this.game.physics.startSystem(Phaser.Physics.ARCADE);
+    game.physics.startSystem(Phaser.Physics.ARCADE);
 
     // Start the "preload" state of the game
-    this.state.start('Preload');
+    game.state.start('Preload');
   }
 }
